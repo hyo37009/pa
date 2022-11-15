@@ -20,3 +20,15 @@ line4.setline(line_4)
 line7 = line('7호선', len(line_7))
 line7.setline(line_7)
 
+line3.ret_station('충무로').line.add('4호선')
+line4.ret_station('충무로').line.add('3호선')
+
+line4.ret_station('총신대입구(이수)').line.add('7호선')
+line7.ret_station('총신대입구(이수)').line.add('4호선')
+
+line3.ret_station('고속터미널').line.add('7호선')
+line7.ret_station('고속터미널').line.add('3호선')
+
+line7.ret_station('노원').line.add('4호선')
+line4.ret_station('노원').line.add('7호선')
+
