@@ -1,9 +1,9 @@
 class station:
     def __init__(self, name:str, line:list):
         self.name = name
-        self.line = list(line)
+        self.line = set(line)
         self.hwan = False
-        self._neighbor = [None, None]
+        self.neighbor = [None, None]
 
     def __str__(self):
         return self.name
@@ -14,18 +14,18 @@ class station:
         prev가 0이면 station의 앞에, 1이면 뒤에 이음
         '''
         if prev:
-            self._neighbor[0] = station
+            self.neighbor[0] = station
         elif not prev:
-            self._neighbor[1] = station
+            self.neighbor[1] = station
         else:
             raise KeyError('0 또는 1만을 입력하셈')
         return True
 
     def prevStation(self):
-        return self._neighbor[0]
+        return self.neighbor[0]
 
     def nextStation(self):
-        return self._neighbor[1]
+        return self.neighbor[1]
 
     def printconnection(self):
             return str(self.prevStation(), self.nextStation())
@@ -47,7 +47,7 @@ class line:
     
     def setline(self, line:list):
         for i in range(self.linenum):
-            #station class를 생성합니다(double connected node)
+            #station class를 생성합니다(double linked node)
             self.linelist[i] = station(line[i], [self.linename])
             self.linestationNames.append(line[i])
         for i in range(self.linenum):
